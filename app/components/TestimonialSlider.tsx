@@ -15,7 +15,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <blockquote className="relative flex h-full min-w-full flex-col px-2 md:px-4">
       <span
-        className="absolute -left-1 -top-2 text-6xl font-serif leading-none text-[var(--accent)] opacity-60 md:-left-2 md:-top-4 md:text-8xl"
+        className="absolute left-0 top-0 text-6xl font-serif leading-none text-[var(--accent)] opacity-60 md:text-8xl"
         aria-hidden
       >
         &ldquo;

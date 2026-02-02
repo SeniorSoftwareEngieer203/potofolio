@@ -121,20 +121,48 @@ export const trustedSnapshot = [
 
 export const whatIDo = [
   {
+    id: "shopify-theme",
     title: "Shopify Theme & Plus Development",
-    description: "Custom Liquid themes, Shopify 2.0 migrations, and Plus-specific features.",
+    description:
+      "Custom Shopify & Plus builds with clean architecture, advanced Liquid logic, and scalable Shopify 2.0 patterns.",
+    bullets: [
+      "Shopify Plus features & Checkout Extensibility",
+      "Advanced Liquid, metafields & product logic",
+      "Shopify 2.0 migrations & theme architecture",
+    ],
   },
   {
+    id: "headless",
     title: "Headless Commerce",
-    description: "Next.js + Shopify Storefront API for performance-first, flexible storefronts.",
+    description:
+      "High-performance headless storefronts using Next.js + Shopify APIs, built for speed, SEO, and flexibility.",
+    bullets: [
+      "Next.js (SSR / ISR) storefronts",
+      "Storefront & Admin API integrations",
+      "Performance-first, SEO-ready architecture",
+    ],
   },
   {
+    id: "cro",
     title: "CRO & Performance Optimization",
-    description: "Speed optimization and conversion-focused UI to grow revenue.",
+    description:
+      "Conversion-focused UI and performance optimization driven by data, not guesswork.",
+    bullets: [
+      "Core Web Vitals & Lighthouse optimization",
+      "PDP, cart & checkout UX improvements",
+      "Conversion and speed audits",
+    ],
   },
   {
+    id: "app-integration",
     title: "App & Integration Development",
-    description: "Custom Shopify apps, subscriptions (Recharge), payments, and third-party integrations.",
+    description:
+      "Custom Shopify apps and integrations that extend platform capabilities.",
+    bullets: [
+      "Custom Shopify apps & extensions",
+      "Subscriptions (Recharge & custom logic)",
+      "Payments & third-party integrations",
+    ],
   },
 ];
 

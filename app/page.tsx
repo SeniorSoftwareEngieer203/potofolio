@@ -10,6 +10,7 @@ import {
 import { ProjectCard } from "./components/ProjectCard";
 import { Section } from "./components/Section";
 import { TestimonialSlider } from "./components/TestimonialSlider";
+import { AnimatedStat } from "./components/AnimatedStat";
 import Image from "next/image";
 
 export default function Home() {
@@ -122,18 +123,14 @@ export default function Home() {
                 value: "85%+",
                 label: "Repeat & Long-Term Clients",
               },
-            ].map((stat) => (
-              <div
+            ].map((stat, index) => (
+              <AnimatedStat
                 key={stat.label}
-                className="rounded-xl border border-[var(--border)] bg-[var(--card)]/50 p-4 transition-colors duration-300 md:p-5"
-              >
-                <p className="text-2xl font-bold text-[var(--foreground)] md:text-3xl">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-wider text-[var(--muted)] md:mt-2 md:text-sm">
-                  {stat.label}
-                </p>
-              </div>
+                value={stat.value}
+                label={stat.label}
+                delayMs={index * 120}
+                durationMs={800}
+              />
             ))}
           </div>
 
@@ -157,25 +154,68 @@ export default function Home() {
       </Section>
 
       {/* What I Do */}
-      <Section
-        title="What I Do"
-        subtitle="End-to-end Shopify and headless commerce solutions."
-        className="border-t border-[var(--border)] bg-[var(--card)]/50"
+      <section
+        className="border-t border-[var(--border)] bg-[var(--card)]/50 py-16 md:py-24"
+        aria-labelledby="what-i-do-heading"
       >
-        <div className="grid gap-8 md:grid-cols-2">
-          {whatIDo.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-xl border border-[var(--border)] bg-[var(--background)] p-6"
+        <div className="mx-auto max-w-6xl px-4 md:px-6">
+          <div className="mb-12 text-center md:mb-16">
+            <h2
+              id="what-i-do-heading"
+              className="font-serif text-3xl font-bold tracking-tight text-[var(--accent)] md:text-4xl"
             >
-              <h3 className="text-lg font-semibold text-[var(--accent)]">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-[var(--muted)]">{item.description}</p>
-            </div>
-          ))}
+              What I Do
+            </h2>
+            <p className="mt-3 text-lg text-[var(--accent)]/90">
+              Senior-level Shopify & headless commerce — built to scale, convert, and perform.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {whatIDo.map((item) => (
+              <article
+                key={item.id}
+                className="rounded-md border-t-5 border-1 border-t-[var(--accent)] border-muted bg-[var(--background)] p-6"
+              >
+                <h3 className="text-lg font-semibold text-[var(--accent)]">
+                  {item.title}
+                </h3>
+                <div className="mt-2 h-0.25 w-full shrink-0 bg-[color:rgb(from_var(--accent)_r_g_b_/_.6)]" aria-hidden />
+                <p className="mt-3 text-sm text-[var(--muted)]">
+                  {item.description}
+                </p>
+                <ul className="mt-4 list-none space-y-2 text-sm text-[var(--foreground)]">
+                  {item.bullets.map((bullet) => (
+                    <li key={bullet} className="flex items-start gap-2">
+                      <span
+                        className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]"
+                        aria-hidden
+                      >
+                        <svg
+                          width="10"
+                          height="8"
+                          viewBox="0 0 10 8"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="text-[#0a0a0a]"
+                        >
+                          <path
+                            d="M1 4l2.5 2.5L9 1"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Tech Stack */}
       <Section title="Tech Stack" subtitle="Tools and platforms I work with.">
