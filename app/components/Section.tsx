@@ -4,12 +4,14 @@ interface SectionProps {
   subtitle?: string;
   children: React.ReactNode;
   className?: string;
+  /** When true, section content uses full width (no max-width constraint) */
+  fullWidth?: boolean;
 }
 
-export function Section({ id, title, subtitle, children, className = "" }: SectionProps) {
+export function Section({ id, title, subtitle, children, className = "", fullWidth }: SectionProps) {
   return (
     <section id={id} className={`py-16 md:py-24 ${className}`}>
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+      <div className={`mx-auto px-4 md:px-6 ${fullWidth ? "max-w-full" : "max-w-6xl"}`}>
         {(title || subtitle) && (
           <div className="mb-12 text-center md:mb-16">
             {title && (

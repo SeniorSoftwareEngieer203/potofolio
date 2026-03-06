@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dejan Mitrovic | Senior Shopify & Headless Commerce Developer",
+  title: "Sugar Ray Ledesma | Senior Shopify Developer | Headless Commerce | Accessibility-First UI",
   description:
-    "8+ years building high-performance Shopify & Shopify Plus stores with Next.js. Headless commerce, CRO, custom checkout.",
+    "7+ years building scalable Shopify Plus storefronts, custom apps, and API-driven integrations. Liquid, React, Next.js, GraphQL. ADA/WCAG compliance, performance optimization.",
 };
 
 export default function RootLayout({
@@ -27,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
+        suppressHydrationWarning
+      >
         <Header />
         <main className="pt-[72px] min-h-[calc(100vh-72px)] flex flex-col">
           {children}

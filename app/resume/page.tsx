@@ -16,16 +16,11 @@ export default function ResumePage() {
         subtitle="Structured, skimmable version of my CV."
       >
         <div className="mx-auto max-w-3xl space-y-12">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <p className="text-[var(--muted)]">{site.email} · {site.phone}</p>
-            <a
-              href={`${site.linkedin}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--accent)] hover:underline"
-            >
-              LinkedIn
-            </a>
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--border)] pb-6">
+            <p className="text-sm text-[var(--muted)]">
+              {site.email} · {site.phone}
+            </p>
+            <p className="text-sm text-[var(--muted)]">{site.location}</p>
           </div>
 
           <div>
@@ -52,7 +47,7 @@ export default function ResumePage() {
                   </div>
                   <ul className="mt-3 space-y-1 pl-4">
                     {job.bullets.map((b, i) => (
-                      <li key={i} className="text-[var(--muted)] text-sm list-disc">
+                      <li key={i} className="text-sm list-disc text-[var(--muted)]">
                         {b}
                       </li>
                     ))}
@@ -86,7 +81,7 @@ export default function ResumePage() {
             </h3>
             <p className="mt-3 text-[var(--muted)]">
               {education.degree} — {education.school}, {education.year},{" "}
-              {education.location}. {education.gpa}
+              {education.location}.{education.gpa ? ` ${education.gpa}` : ""}
             </p>
           </div>
 
@@ -97,17 +92,6 @@ export default function ResumePage() {
                 Work
               </Link>{" "}
               for case studies and results.
-            </p>
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--accent)] px-6 py-3 text-sm font-semibold text-[var(--accent)] transition hover:bg-[var(--accent)]/10"
-            >
-              Download PDF
-            </a>
-            <p className="mt-4 text-sm text-[var(--muted)]">
-              Add your resume PDF to <code className="rounded bg-[var(--border)] px-1">public/resume.pdf</code> to enable the button.
             </p>
           </div>
         </div>

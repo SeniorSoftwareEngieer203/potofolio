@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { projects } from "@/lib/data";
+import { projects, site } from "@/lib/data";
 import { Section } from "@/app/components/Section";
 
 interface Props {
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = projects.find((p) => p.slug === slug);
   if (!project) return { title: "Project" };
   return {
-    title: `${project.name} | Dejan Mitrovic`,
+    title: `${project.name} | ${site.name}`,
     description: project.result,
   };
 }
@@ -30,7 +30,7 @@ export default async function CaseStudyPage({ params }: Props) {
   return (
     <>
       <section className="border-b border-[var(--border)] py-16 md:py-20">
-        <div className="mx-auto max-w-3xl px-4 md:px-6">
+        <div className="mx-auto max-w-6xl w-full px-4 md:px-6">
           <Link
             href="/work"
             className="text-sm font-medium text-[var(--accent)] hover:underline"
@@ -41,7 +41,10 @@ export default async function CaseStudyPage({ params }: Props) {
             {project.name}
           </h1>
           <p className="mt-2 text-[var(--muted)]">{project.role}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <p className="mt-3 text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
+            Project type
+          </p>
+          <div className="mt-2 flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
                 key={tag}
@@ -55,7 +58,22 @@ export default async function CaseStudyPage({ params }: Props) {
       </section>
 
       <Section title="Project Overview">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+          {project.storeUrl && (
+            <div className="sm:col-span-2 md:col-span-1">
+              <p className="text-xs font-medium uppercase text-[var(--muted)]">
+                Store
+              </p>
+              <a
+                href={project.storeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 block truncate text-[var(--accent)] hover:underline"
+              >
+                {project.storeUrl.replace(/^https?:\/\//, "")}
+              </a>
+            </div>
+          )}
           <div>
             <p className="text-xs font-medium uppercase text-[var(--muted)]">
               Client type
@@ -81,11 +99,11 @@ export default async function CaseStudyPage({ params }: Props) {
         title="Problem"
         className="border-t border-[var(--border)] bg-[var(--card)]/50"
       >
-        <p className="max-w-2xl text-[var(--muted)]">{project.problem}</p>
+        <p className="text-[var(--foreground)]">{project.problem}</p>
       </Section>
 
       <Section title="Solution">
-        <p className="max-w-2xl text-[var(--muted)]">{project.solution}</p>
+        <p className="text-[var(--foreground)]">{project.solution}</p>
       </Section>
 
       <Section
@@ -119,29 +137,6 @@ export default async function CaseStudyPage({ params }: Props) {
         <p className="mt-6 font-medium text-[var(--accent)]">{project.result}</p>
       </Section>
 
-      <Section
-        title="Screenshots / Demo"
-        className="border-t border-[var(--border)] bg-[var(--card)]/50"
-      >
-        <div className="aspect-video max-w-3xl rounded-xl border border-[var(--border)] bg-[var(--border)]">
-          <div className="h-full w-full bg-gradient-to-br from-[var(--accent)]/20 to-[var(--background)]" />
-        </div>
-        <p className="mt-4 text-sm text-[var(--muted)]">
-          Desktop + mobile views. Replace with real screenshots when available.
-        </p>
-      </Section>
-
-      <section className="border-t border-[var(--border)] py-16 text-center">
-        <h2 className="text-xl font-bold text-[var(--foreground)]">
-          Want similar results?
-        </h2>
-        <Link
-          href="/contact"
-          className="mt-6 inline-block rounded-full bg-[var(--accent)] px-8 py-3 text-sm font-semibold text-[var(--background)] transition hover:bg-[var(--accent-hover)]"
-        >
-          Get in Touch
-        </Link>
-      </section>
     </>
   );
 }

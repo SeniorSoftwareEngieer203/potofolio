@@ -14,10 +14,10 @@ export default function AboutPage() {
               Short intro
             </h3>
             <p className="mt-3 text-[var(--muted)]">
-              I&apos;m Dejan, a Senior Shopify Full Stack Developer with over 8
+              I&apos;m Sugar Ray, a Senior Shopify Full Stack Developer with over 5
               years of experience creating custom e-commerce solutions. I focus
               on Shopify Plus, headless commerce (Next.js, React), and
-              third-party integrations—driving revenue through optimized
+              third-party integrations driving revenue through optimized
               conversion and streamlined checkout. I work comfortably in remote,
               async teams with a strong sense of ownership and craftsmanship.
             </p>
@@ -28,7 +28,7 @@ export default function AboutPage() {
               Experience summary
             </h3>
             <ul className="mt-3 space-y-2 text-[var(--muted)]">
-              <li>8+ years in e-commerce and Shopify</li>
+              <li>5+ years in e-commerce and Shopify</li>
               <li>Remote agency work with global brands</li>
               <li>Ownership mindset: I own projects end-to-end</li>
             </ul>

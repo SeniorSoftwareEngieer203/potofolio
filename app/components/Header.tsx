@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { site, navLinks } from "@/lib/data";
-import Image from "next/image";
+import { navLinks } from "@/lib/data";
+import { Logo } from "./Logo";
 
 export function Header() {
   const pathname = usePathname();
@@ -13,12 +13,7 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
-        <Link
-          href="/"
-          className="text-lg font-semibold text-[var(--accent)] transition hover:text-[var(--accent-hover)]"
-        >
-          <Image src={site.logo} alt={site.name} width={200} height={100} className="w-45 h-auto" />
-        </Link>
+        <Logo />
 
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map(({ href, label }) => (
