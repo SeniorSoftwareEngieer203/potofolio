@@ -28,14 +28,6 @@ export function Footer() {
         </div>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4 border-t border-[var(--border)] pt-8 text-sm text-[var(--muted)] md:justify-between">
           <span>© {new Date().getFullYear()} {site.name}</span>
-          <a
-            href={site.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[var(--accent)]"
-          >
-            LinkedIn
-          </a>
         </div>
       </div>
     </footer>

@@ -89,14 +89,6 @@ export default function ContactPage() {
             >
               {site.email}
             </a>
-            <a
-              href={site.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 block font-medium text-[var(--accent)] hover:underline"
-            >
-              LinkedIn
-            </a>
             {site.calendly && (
               <a
                 href={site.calendly}

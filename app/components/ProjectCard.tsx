@@ -12,14 +12,33 @@ export function ProjectCard({ project, featured }: ProjectCardProps) {
       href={`/work/${project.slug}`}
       className="group block overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card)] transition hover:border-[var(--accent)]/50"
     >
-      <div className="aspect-video w-full bg-[var(--border)]">
-        <div
-          className="h-full w-full bg-gradient-to-br from-[var(--accent)]/20 to-[var(--background)]"
-          aria-hidden
-        />
+      <div className="aspect-video w-full overflow-hidden bg-[var(--border)]">
+        {project.cardImageUrl?.trim() ? (
+          <img
+            src={project.cardImageUrl}
+            alt=""
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            style={{ filter: "blur(0px)" }}
+          />
+        ) : (
+          <div
+            className="h-full w-full bg-gradient-to-br from-[var(--accent)]/20 to-[var(--background)]"
+            aria-hidden
+          />
+        )}
       </div>
       <div className="p-5 md:p-6">
-        <h3 className="text-lg font-semibold text-[var(--foreground)] group-hover:text-[var(--accent)]">
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-md bg-[var(--accent)]/20 px-2 py-0.5 text-xs font-medium text-[var(--accent)]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <h3 className="mt-2 text-lg font-semibold text-[var(--foreground)] group-hover:text-[var(--accent)]">
           {project.name}
         </h3>
         <p className="mt-1 text-sm text-[var(--muted)]">{project.role}</p>
